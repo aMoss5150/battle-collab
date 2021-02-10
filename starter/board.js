@@ -16,10 +16,10 @@ class Board {
 
   }
 
-  shipPusher(){
-    for (let i = 0; i < this.numShips; i++){
+  shipPusher() {
+    for (let i = 0; i < this.numShips; i++) {
       let checker = array[i];
-      if (checker === null){
+      if (checker === null) {
         array[i] = "s";
       }
     };
@@ -39,11 +39,18 @@ class Board {
 
     }
 
-    for (let i = 0; i < 5; i++){
-      let checker = array[i][0];
+
+
+    for (let i = 0; i < this.numShips; i++) {
+      let random = Math.floor(Math.random() * 100)
+      let row = Math.floor(random / this.numRows)
+      let col = random % this.numRows
+      let checker = array[row][col];
       console.log(checker);
-      if (checker === null){
-        array[i][0] = "s";
+      if (checker === null) {
+        array[row][col] = "s";
+      } else {
+        i--;
       }
     };
     // console.log('array:', array)
@@ -60,11 +67,29 @@ class Board {
 
   count() {
     // TODO: Return the number of valid targets (ships) remaining.
+
+    let count = 0
+    for (let i = 0; i < this.numRows; i++) {
+      for (let j = 0; j < this.numCols; j++) {
+        if (this.grid[i][j] === "s") {
+          count++;
+        }
+      }
+    }
+    return count;
   }
 
   isValidMove(pos) {
     // TODO: Take in an attack position (in the form of an array [row, col]) and
     // return true if the position is a valid move.
+    const [row, col] = pos
+    if (row >= 0 && row < this.numRows) {
+      if (col >= 0 && col < this.numCols) {
+
+        return true
+      }
+    }
+    return false
   }
 
   isGameOver() {
