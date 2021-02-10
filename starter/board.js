@@ -16,6 +16,15 @@ class Board {
 
   }
 
+  shipPusher(){
+    for (let i = 0; i < this.numShips; i++){
+      let checker = array[i];
+      if (checker === null){
+        array[i] = "s";
+      }
+    };
+  }
+
   populateGrid() {
     // TODO: Using the instance variables numRows, numCols, and numShips, return
     // a 2D array representing the state of the board.
@@ -29,6 +38,14 @@ class Board {
       array.push(array2)
 
     }
+
+    for (let i = 0; i < 5; i++){
+      let checker = array[i][0];
+      console.log(checker);
+      if (checker === null){
+        array[i][0] = "s";
+      }
+    };
     // console.log('array:', array)
     return array;
 
