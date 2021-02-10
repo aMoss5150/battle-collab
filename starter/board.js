@@ -16,14 +16,6 @@ class Board {
 
   }
 
-  shipPusher() {
-    for (let i = 0; i < this.numShips; i++) {
-      let checker = array[i];
-      if (checker === null) {
-        array[i] = "s";
-      }
-    };
-  }
 
   populateGrid() {
     // TODO: Using the instance variables numRows, numCols, and numShips, return
@@ -38,8 +30,6 @@ class Board {
       array.push(array2)
 
     }
-
-
 
     for (let i = 0; i < this.numShips; i++) {
       let random = Math.floor(Math.random() * 100)
@@ -62,7 +52,20 @@ class Board {
     // TODO: Print the game board with marks on any spaces that have been fired
     // upon. Be sure not to display the unhit ships to the user! Hint: you might
     // be able to use console.table()
-    console.table(this.populateGrid())
+    let display = this.grid.slice(0);
+    console.table(display);
+
+    for (let i = 0; i < display.length; i++){
+      let row = display[i];
+      for (let j = 0; j < row.length; j++){
+        if(row[j] === "s"){
+          row[j] = null;
+        }
+      }
+    }
+    
+    console.table(this.grid);
+    console.log(display === this.grid);
   }
 
   count() {
@@ -94,16 +97,27 @@ class Board {
 
   isGameOver() {
     // TODO: Return true if the game is over (when all ships are hit).
+    if (this.count() === 0){
+      return true;
+    }
   }
 
-  attack() {
+  attack(pos) {
     // TODO: Take in an attack position in the form of an array, [row, col], as
     // a parameter. Update this.grid depending on if the position is an empty
     // space or a damaged ship.
+    const [row, col] = pos;
+
+    if (this.grid[row][col] === "s"){
+      this.grid[row][col] = "h";
+    } else {
+      this.grid[row][col] = "x";
+    }
+    
   }
 }
 
-// console.table([[0, 45, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3]]);
+
 const board = new Board;
 board.display()
 
