@@ -1,11 +1,15 @@
 
 const Board = require('./board')
+const HumanPlayer = require('./humanPlayer')
 
 class BattleshipGame {
-  constructor() {
+  constructor(player1, numRows, numCols, numShips) {
     // TODO: Set up constructor to store reference to the humanPlayer and
     // instantiate a new instance of the Board class and set it to this.board.
     // Remember to import your Board class.
+    this.turns = 0;
+    this.player1 = player1
+    this.board = new Board(numRows, numCols, numShips)
   }
 
   playTurn() {

@@ -1,17 +1,11 @@
 class Board {
-  constructor() {
+  constructor(numRows, numCols, numShips) {
     // TODO: Set up constructor that sets the numRos, numCols, and numShips.
     // TODO: Set this.grid equal to the return value of the instance method
-    // populateGrid().
-    // index     0      1     2    3     4
-    //       0 [0,0] [1,0] [2,0] [3,0] [4,0]
-    //       1 [0,1] [1,1] [2,1] [3,1] [4,1]
-    //       2 [0,2] [1,2] [2,2] [3,2] [4,2]
-    //       3 [0,3] [1,3] [2,3] [3,3] [4,3]
-    //       4 [0,4] [1,4] [2,4] [3,4] [4,4]
-    this.numRows = 10;
-    this.numCols = 10;
-    this.numShips = 20;
+
+    this.numRows = numRows
+    this.numCols = numCols
+    this.numShips = numShips
     this.grid = this.populateGrid()
 
   }
@@ -55,15 +49,15 @@ class Board {
     let display = this.grid.slice(0);
     console.table(display);
 
-    for (let i = 0; i < display.length; i++){
+    for (let i = 0; i < display.length; i++) {
       let row = display[i];
-      for (let j = 0; j < row.length; j++){
-        if(row[j] === "s"){
+      for (let j = 0; j < row.length; j++) {
+        if (row[j] === "s") {
           row[j] = null;
         }
       }
     }
-    
+
     console.table(this.grid);
     console.log(display === this.grid);
   }
@@ -97,7 +91,7 @@ class Board {
 
   isGameOver() {
     // TODO: Return true if the game is over (when all ships are hit).
-    if (this.count() === 0){
+    if (this.count() === 0) {
       return true;
     }
   }
@@ -108,12 +102,12 @@ class Board {
     // space or a damaged ship.
     const [row, col] = pos;
 
-    if (this.grid[row][col] === "s"){
+    if (this.grid[row][col] === "s") {
       this.grid[row][col] = "h";
     } else {
       this.grid[row][col] = "x";
     }
-    
+
   }
 }
 
