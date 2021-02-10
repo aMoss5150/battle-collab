@@ -10,7 +10,7 @@ class BattleshipGame {
     this.turns = 0;
     this.player1 = player1
     this.board = new Board(numRows, numCols, numShips)
-    
+
   }
 
   playTurn() {
@@ -30,15 +30,21 @@ class BattleshipGame {
     //     display the final status of the game and end the game. If not, play
     //     another turn. If the move is invalid, ask the player to input a valid
     //     position and play another turn.
-    if (this.board.isValidMove(pos)){
+
+    if (this.board.isValidMove(pos)) {
       this.board.attack(pos);
       this.turns++;
-      if (this.board.isGameOver()){
+      if (this.board.isGameOver()) {
         this.displayStatus();
         this.player1.processGameOver(true);
-      };
+      }
+    } else {
+      console.log('Please pick a valid position')
     }
+    this.playTurn()
   }
+
 }
+
 
 module.exports = BattleshipGame;

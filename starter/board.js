@@ -26,11 +26,11 @@ class Board {
     }
 
     for (let i = 0; i < this.numShips; i++) {
-      let random = Math.floor(Math.random() * 100)
+      let random = Math.floor(Math.random() * this.numRows * this.numCols)
       let row = Math.floor(random / this.numRows)
       let col = random % this.numRows
       let checker = array[row][col];
-      console.log(checker);
+      // console.log(checker);
       if (checker === null) {
         array[row][col] = "s";
       } else {
@@ -47,7 +47,6 @@ class Board {
     // upon. Be sure not to display the unhit ships to the user! Hint: you might
     // be able to use console.table()
     let display = this.grid.slice(0);
-    console.table(display);
 
     for (let i = 0; i < display.length; i++) {
       let row = display[i];
@@ -58,8 +57,7 @@ class Board {
       }
     }
 
-    console.table(this.grid);
-    console.log(display === this.grid);
+    console.table(display);
   }
 
   count() {
