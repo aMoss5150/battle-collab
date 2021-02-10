@@ -18,7 +18,7 @@ class HumanPlayer {
     this.rl.question('Input your coordinates? Eg = 2,4 ',
       (answer) => {
         const [row, col] = answer.split(",")
-        processMove([row, col])
+        processMove([row, col]);
       });
   }
 
