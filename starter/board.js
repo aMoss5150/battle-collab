@@ -3,8 +3,16 @@ class Board {
     // TODO: Set up constructor that sets the numRos, numCols, and numShips.
     // TODO: Set this.grid equal to the return value of the instance method
     // populateGrid().
-  }
+    // index     0      1     2    3     4
+    //       0 [0,0] [1,0] [2,0] [3,0] [4,0]
+    //       1 [0,1] [1,1] [2,1] [3,1] [4,1]
+    //       2 [0,2] [1,2] [2,2] [3,2] [4,2]
+    //       3 [0,3] [1,3] [2,3] [3,3] [4,3]
+    //       4 [0,4] [1,4] [2,4] [3,4] [4,4]
 
+
+  }
+  
   populateGrid() {
     // TODO: Using the instance variables numRows, numCols, and numShips, return
     // a 2D array representing the state of the board.
@@ -35,5 +43,7 @@ class Board {
     // space or a damaged ship.
   }
 }
+
+console.table([[0, 45, 2, 3], [0, 1, 2 ,3], [0, 1 , 2, 3], [0, 1 , 2, 3]]);
 
 module.exports = Board;
