@@ -1,3 +1,6 @@
+
+const Board = require('./board')
+
 class BattleshipGame {
   constructor() {
     // TODO: Set up constructor to store reference to the humanPlayer and
