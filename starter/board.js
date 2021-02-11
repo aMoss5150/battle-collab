@@ -77,7 +77,9 @@ class Board {
   isValidMove(pos) {
     // TODO: Take in an attack position (in the form of an array [row, col]) and
     // return true if the position is a valid move.
+    console.log("hi :)")
     const [row, col] = pos
+    
     if (row >= 0 && row < this.numRows) {
       if (col >= 0 && col < this.numCols) {
 
@@ -110,7 +112,5 @@ class Board {
 }
 
 
-const board = new Board;
-board.display()
 
 module.exports = Board;

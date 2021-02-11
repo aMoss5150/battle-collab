@@ -30,7 +30,7 @@ class BattleshipGame {
     //     display the final status of the game and end the game. If not, play
     //     another turn. If the move is invalid, ask the player to input a valid
     //     position and play another turn.
-
+    console.log(Board);
     if (this.board.isValidMove(pos)) {
       this.board.attack(pos);
       this.turns++;
